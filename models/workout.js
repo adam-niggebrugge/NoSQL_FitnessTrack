@@ -8,11 +8,13 @@ const WorkoutSchema = new Schema ({
         type: String,
         required: "Must chose an exercise type."
     },
-    //User can define. Either activity should be named
-    name: {
-        type: String,
-        required: "Must identify the exercise performed."
-    },
+
+    //need to know when exercises occur to find the last occurance
+    date: {
+        type: Date,
+        required: "Date must exist",
+        default: Date.now
+    }
 })   
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
