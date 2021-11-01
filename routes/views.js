@@ -1,21 +1,23 @@
 const router = require("express").Router();
+const path = require("path");
 const { Workout, CardioExercise, ResistanceExercise } = require("../models");
 
 
 router.get("/exercise", (req, res) => {
-    console.log(`view exercise, are there request parts? ${req.body}`)
+    console.log(`view exercise, are there request parts? ${req}`)
     try{
-        res.render("exercise.html")
+        res.sendFile(path.join(__dirname, "../public/exercise.html"));
     } catch (err){
         res.status(500).json(err);
     }
 });
 
 router.get("/stats", (req, res) => {
-    console.log(`stats, are there request parts? ${req.body}`)
+    console.log(`stats, are there request parts? ${req}`)
     try{
-        res.render("stats.html")
+        res.sendFile(path.join(__dirname, "../public/stats.html"));
     } catch (err){
+        console.log(`${err} stats problem?`)
         res.status(500).json(err);
     }
 });
