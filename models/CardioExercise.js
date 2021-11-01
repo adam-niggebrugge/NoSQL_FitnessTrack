@@ -2,17 +2,8 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const ExerciseSchema = new Schema ({
-    //Expect either cardio or workout. user interface is using select
-    activity: {
-        type: String,
-        required: "Must chose an exercise type."
-    },
-    //User can define. Either activity should be named
-    name: {
-        type: String,
-        required: "Must identify the exercise performed."
-    },
+const CardioExerciseSchema = new Schema ({
+   
     //Either activity should always have a time
     duration: {
         type: Number,
@@ -41,6 +32,6 @@ const ExerciseSchema = new Schema ({
     }
 });
 
-const Exercise = mongoose.model("Exercise", ExerciseSchema);
+const CardioExercise = mongoose.model("CardioExercise", CardioExerciseSchema);
 
-module.exports = Exercise;
+module.exports = CardioExercise;
