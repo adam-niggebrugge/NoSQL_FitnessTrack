@@ -1,12 +1,11 @@
 const router = require("express").Router();
-const { Workout } = require("../models/Workout.js");
+const { Workout } = require("../models");
 
 
 //retrieve a workout
 router.get("/workouts", (req, res) => {
     console.log(`api router workkouts, are there request parts? ${req.params}`)
     Workout.find({})
-    .sort({ date: -1 })
     .then(dbWorkoutRetrieved => {
       res.status(200).json(dbWorkoutRetrieved);
     })
