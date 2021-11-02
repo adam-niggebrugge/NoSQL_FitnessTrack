@@ -40,8 +40,24 @@ const WorkoutSchema = new Schema ({
         type: Date,
         default: Date.now
     }
+  },
+  {
+    toJSON: {
+        virtuals: true, //enable virtual functions to extend schema
+    }
   }
 );
+
+
+
+//for the totalDuration JSON key requestd in public/stats.js, equivalent to VIEW in SQL
+
+WorkoutSchema.virtual("totalDuration").get(function(){
+    return this.exercises.reduce((total, exercise) => {
+        return total + exercise.duration;
+    },
+   0);
+});
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
