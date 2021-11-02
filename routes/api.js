@@ -6,8 +6,8 @@ router.get("/workouts", (req, res) => {
     console.log(`api router workkouts, are there request parts? ${req.params}`)
     Workout.find({})
     .sort({ date: -1 })
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+    .then(dbWorkoutRetrieved => {
+      res.json(dbWorkoutRetrieved);
     })
     .catch(err => {
       console.log(`${err}`)
@@ -23,10 +23,10 @@ router.put("/workouts/:id", (req, res) => {
 
 //create a workout
 router.post("/workouts/", (req, res) => {
-    console.log(`post /api/workouts/, are there request parts? ${req.params}`)
-    Workout.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+    console.log(`post /api/workouts/, are there request parts? ${req.body}`)
+    Workout.create(req.body)
+    .then(dbWorkoutCreated => {
+      res.json(dbWorkoutCreated);
     })
     .catch(err => {
       console.log(`${err}`)
