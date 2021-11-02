@@ -17,6 +17,10 @@ const CardioExerciseSchema = new Schema ({
     distance: {
         type: Number,
     },
+    workout: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Workout"
+    },
 });
 
 const CardioExercise = mongoose.model("CardioExercise", CardioExerciseSchema);

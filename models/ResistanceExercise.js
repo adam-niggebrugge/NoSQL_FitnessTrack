@@ -25,6 +25,10 @@ const ResistanceExerciseSchema = new Schema ({
         type: Number,
         required: "Please provide time spent performing activity."
     },
+    workout: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Workout"
+    },
 })   
 const ResistanceExercise = mongoose.model("ResistanceExercise", ResistanceExerciseSchema);
 
