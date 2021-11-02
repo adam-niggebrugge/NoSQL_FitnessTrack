@@ -63,7 +63,9 @@ _ _ _ _
 Mongo DB, Mongoose, Express, Javascript
 
  [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)
+ 
  [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/)
+ 
  [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate)
 
 
