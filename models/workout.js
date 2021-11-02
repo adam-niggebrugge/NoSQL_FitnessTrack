@@ -36,7 +36,7 @@ const WorkoutSchema = new Schema ({
         },
     }],
     //need to know when exercises occur to find the last occurance
-    date: {
+    day: {
         type: Date,
         default: Date.now
     }
