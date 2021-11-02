@@ -8,8 +8,6 @@ router.get("/workouts", async (req, res) => {
     const workout  = await Workout.find({})
     res.status(200).json(workout);
   } catch (err) {  
-      console.log(`inside of get workouts ++++
-      ++${err}`);
       res.status(400).json(err);
   };
 });
@@ -27,7 +25,6 @@ router.put("/workouts/:id", async (req, res) => {
       res.status(200).json({message: "empty submission, nothing saved"});
     }
   } catch (err) {
-    console.log(`inside of put workouts %%%%%%%%%%%%%%%${err}`);
     res.status(400).json(err);
   }
 })
@@ -35,7 +32,6 @@ router.put("/workouts/:id", async (req, res) => {
 //create a workout
 router.post("/workouts", async (req, res) => {
   try {
-    console.log(req.body);
     const workout = await Workout.create(req.body)
     if(workout){
       res.status(200).json(workout);
@@ -43,8 +39,6 @@ router.post("/workouts", async (req, res) => {
       res.status(400).json({message: "Not Created"})
     }
   } catch (err) { 
-      console.log(`Inside of post workouts *************
-      ***${err}`);
       res.status(500).json(err);
   };
 });
@@ -57,7 +51,6 @@ router.get("/workouts/range", async (req, res) => {
         .limit(7);
         res.status(200).json(workout);
     } catch (err) { 
-      console.log(`Inside of get  range workouts #################### ${err}`);
       res.status(400).json(err);
     }
 });

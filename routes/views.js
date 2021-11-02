@@ -4,7 +4,6 @@ const { Workout } = require("../models");
 
 
 router.get("/exercise", (req, res) => {
-    console.log(`view exercise, are there request parts? ${req}`)
     try{
         res.sendFile(path.join(__dirname, "../public/exercise.html"));
     } catch (err){
@@ -13,11 +12,9 @@ router.get("/exercise", (req, res) => {
 });
 
 router.get("/stats", (req, res) => {
-    console.log(`stats, are there request parts? ${req}`)
     try{
         res.sendFile(path.join(__dirname, "../public/stats.html"));
     } catch (err){
-        console.log(`${err} stats problem?`)
         res.status(500).json(err);
     }
 });
