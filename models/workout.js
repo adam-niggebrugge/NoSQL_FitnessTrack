@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const WorkoutSchema = new Schema ({
-     //Expect either cardio or workout. user interface is using select
-    exercise: [{
+    exercises: [{
+        //Expect either cardio or resistance. user interface is using select
         type: {
             type: String,
+            required: "Must be either resistance or cardio"
         },
         name: {
             type: String,
@@ -35,11 +36,13 @@ const WorkoutSchema = new Schema ({
         },
     }],
     //need to know when exercises occur to find the last occurance
-    date: {
+    day: {
         type: Date,
         default: Date.now
     }
-})   
+  }
+);
+
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
